@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Models;
+
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use Sluggable,HasFactory;
+    protected $fillabe = [
+        'name',
+        'slug',
+        'image',
+        'category_id',
+        'short_text',
+        'price',
+        'size',
+        'color',
+        'quantity',
+        'status',
+        'content',
+    ];
+    public function category(){
+        return $this->hasOne(Category::class,'id','category_id');
+    }
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+}

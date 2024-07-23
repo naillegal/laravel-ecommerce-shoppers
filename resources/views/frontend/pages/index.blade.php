@@ -16,38 +16,35 @@
             </div>
         </div>
     </div>
-
+    
     <div class="site-section site-section-sm site-blocks-1">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
                     <div class="icon mr-4 align-self-start">
-                        <span class="icon-truck"></span>
+                        <span class="{{$about->text_1_icon}}"></span>
                     </div>
                     <div class="text">
-                        <h2 class="text-uppercase">Free Shipping</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                            Integer accumsan tincidunt fringilla.</p>
+                        <h2 class="text-uppercase">{{$about->text_1}}</h2>
+                        <p>{{$about->text_1_content}}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon mr-4 align-self-start">
-                        <span class="icon-refresh2"></span>
+                        <span class="{{$about->text_2_icon}}"></span>
                     </div>
                     <div class="text">
-                        <h2 class="text-uppercase">Free Returns</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                            Integer accumsan tincidunt fringilla.</p>
+                        <h2 class="text-uppercase">{{$about->text_2}}</h2>
+                        <p>{{$about->text_2_content}}</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon mr-4 align-self-start">
-                        <span class="icon-help"></span>
+                        <span class="{{$about->text_3_icon}}"></span>
                     </div>
                     <div class="text">
-                        <h2 class="text-uppercase">Customer Support</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam.
-                            Integer accumsan tincidunt fringilla.</p>
+                        <h2 class="text-uppercase">{{$about->text_3}}</h2>
+                        <p>{{$about->text_3_content}}</p>
                     </div>
                 </div>
             </div>
@@ -183,12 +180,12 @@
                             class="img-fluid rounded"></a>
                 </div>
                 <div class="col-md-12 col-lg-5 text-center pl-md-5">
-                    <h2><a href="#">50% less in all items</a></h2>
+                    <h2>50% less in all items</h2>
                     <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span
                             class="block-8-sep">&bullet;</span> September 3, 2018</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium
                         facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-                    <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
+                    <p><a href="{{route('discount_products')}}" class="btn btn-primary btn-sm">Shop Now</a></p>
                 </div>
             </div>
         </div>

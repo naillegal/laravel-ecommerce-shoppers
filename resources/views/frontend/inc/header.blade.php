@@ -24,7 +24,7 @@
                             <li>
                                 <a href="{{ route('basket') }}" class="site-cart">
                                     <span class="icon icon-shopping_cart"></span>
-                                    <span class="count">2</span>
+                                    <span class="count">{{count(session('basket'))}}</span>
                                 </a>
                             </li>
                             <li class="d-inline-block d-md-none ml-md-0"><a href="#"
@@ -43,25 +43,30 @@
                     <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="has-children">
-                    <a href="#">Category</a>
+                    <a href="{{route('products')}}">Category</a>
                     <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                        <li class="has-children">
-                            <a href="#">Sub Menu</a>
-                            <ul class="dropdown">
-                                <li><a href="#">Menu One</a></li>
-                                <li><a href="#">Menu Two</a></li>
-                                <li><a href="#">Menu Three</a></li>
-                            </ul>
-                        </li>
+                        @if (!empty($categories) && $categories->count() > 0)
+                            @foreach ($categories as $category)
+                                @if ($category->cat_ust == null)
+                                    <li class="has-children">
+                                        <a href="{{ route('products', $category->slug) }}">{{ $category->name }}</a>
+                                        <ul class="dropdown">
+                                            @foreach ($categories as $subCategory)
+                                                @if ($subCategory->cat_ust == $category->id)
+                                                    <li>
+                                                        <a href="{{ route('subcategory.products', [$category->slug, $subCategory->slug]) }}">{{ $subCategory->name }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
                 <li><a href="{{ route('products') }}">Products</a></li>
-                <li>
-                    <a href="{{ route('about') }}">About</a>
-                </li>
+                <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
         </div>
